@@ -20,7 +20,7 @@ const MainLayout = ({ children }: MainLayoutProps) => {
               <span className="icon">
                 <i className="fas fa-stream"></i>
               </span>
-              <span>Kafka QA Trainer</span>
+              <span>Kafka QA Тренажёр</span>
             </span>
           </h1>
         </div>
@@ -30,7 +30,7 @@ const MainLayout = ({ children }: MainLayoutProps) => {
             <Link to="/" className={isActive('/') ? 'is-active' : ''}>
               <span className="icon-text">
                 <span className="icon"><i className="fas fa-tachometer-alt"></i></span>
-                <span>Dashboard</span>
+                <span>Дашборд</span>
               </span>
             </Link>
           </li>
@@ -38,7 +38,7 @@ const MainLayout = ({ children }: MainLayoutProps) => {
             <Link to="/profiles" className={isActive('/profiles') ? 'is-active' : ''}>
               <span className="icon-text">
                 <span className="icon"><i className="fas fa-users"></i></span>
-                <span>Profiles</span>
+                <span>Профили</span>
               </span>
             </Link>
           </li>
@@ -46,7 +46,7 @@ const MainLayout = ({ children }: MainLayoutProps) => {
             <Link to="/events" className={isActive('/events') ? 'is-active' : ''}>
               <span className="icon-text">
                 <span className="icon"><i className="fas fa-stream"></i></span>
-                <span>Events</span>
+                <span>События</span>
               </span>
             </Link>
           </li>
@@ -62,7 +62,7 @@ const MainLayout = ({ children }: MainLayoutProps) => {
             <Link to="/producer" className={isActive('/producer') ? 'is-active' : ''}>
               <span className="icon-text">
                 <span className="icon"><i className="fas fa-paper-plane"></i></span>
-                <span>Producer</span>
+                <span>Продюсер</span>
               </span>
             </Link>
           </li>
@@ -71,7 +71,7 @@ const MainLayout = ({ children }: MainLayoutProps) => {
         <div className="sidebar-footer">
           <Link to="/admin" className="button is-danger is-fullwidth">
             <span className="icon"><i className="fas fa-cog"></i></span>
-            <span>Admin</span>
+            <span>Админ</span>
           </Link>
         </div>
       </aside>

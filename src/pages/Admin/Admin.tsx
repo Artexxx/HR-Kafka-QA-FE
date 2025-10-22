@@ -9,26 +9,26 @@ const Admin = () => {
   const [loading, setLoading] = useState(false);
 
   const handleReset = async () => {
-    if (!confirm('⚠️ This will DELETE ALL DATA from the database. Are you absolutely sure?')) {
+    if (!confirm('⚠️ Это действие УДАЛИТ ВСЕ ДАННЫЕ из базы данных. Вы абсолютно уверены?')) {
       return;
     }
 
-    if (!confirm('This action cannot be undone. Type YES in the next dialog to confirm.')) {
+    if (!confirm('Это действие невозможно отменить. Введите ДА в следующем диалоге для подтверждения.')) {
       return;
     }
 
-    const confirmation = prompt('Type "DELETE" to confirm:');
-    if (confirmation !== 'DELETE') {
-      toast.error('Reset cancelled');
+    const confirmation = prompt('Введите "УДАЛИТЬ" для подтверждения:');
+    if (confirmation !== 'УДАЛИТЬ') {
+      toast.error('Сброс отменён');
       return;
     }
 
     try {
       setLoading(true);
       await resetData();
-      toast.success('All data has been reset successfully');
+      toast.success('Все данные успешно сброшены');
     } catch (error) {
-      toast.error(error instanceof Error ? error.message : 'Failed to reset data');
+      toast.error(error instanceof Error ? error.message : 'Не удалось сбросить данные');
     } finally {
       setLoading(false);
     }
@@ -41,28 +41,28 @@ const Admin = () => {
           <h1 className="title is-2">
             <span className="icon-text">
               <span className="icon has-text-danger"><i className="fas fa-cog"></i></span>
-              <span>Admin Panel</span>
+              <span>Панель администратора</span>
             </span>
           </h1>
-          <p className="subtitle">Manage training environment</p>
+          <p className="subtitle">Управление учебной средой</p>
         </div>
 
         <div className="columns">
           <div className="column is-8">
-            <Card title="Danger Zone" subtitle="Destructive actions">
+            <Card title="Опасная зона" subtitle="Деструктивные действия">
               <div className="notification is-danger is-light">
-                <p className="title is-5">⚠️ Reset All Data</p>
+                <p className="title is-5">⚠️ Сброс всех данных</p>
                 <p className="mb-4">
-                  This action will <strong>permanently delete</strong> all data from the database:
+                  Это действие <strong>безвозвратно удалит</strong> все данные из базы данных:
                 </p>
                 <ul className="mb-4">
-                  <li>✗ All employee profiles</li>
-                  <li>✗ All employment history records</li>
-                  <li>✗ All Kafka events</li>
-                  <li>✗ All DLQ messages</li>
+                  <li>✗ Все профили сотрудников</li>
+                  <li>✗ Все записи истории работы</li>
+                  <li>✗ Все события Kafka</li>
+                  <li>✗ Все сообщения DLQ</li>
                 </ul>
                 <p className="has-text-weight-bold mb-4">
-                  This action cannot be undone!
+                  Это действие невозможно отменить!
                 </p>
                 <button
                   className={`button is-danger is-large ${loading ? 'is-loading' : ''}`}
@@ -70,25 +70,25 @@ const Admin = () => {
                   disabled={loading}
                 >
                   <span className="icon"><i className="fas fa-exclamation-triangle"></i></span>
-                  <span>Reset All Data</span>
+                  <span>Сбросить все данные</span>
                 </button>
               </div>
             </Card>
           </div>
 
           <div className="column is-4">
-            <Card title="Information">
+            <Card title="Информация">
               <div className="content">
-                <h4 className="title is-5">When to use reset?</h4>
+                <h4 className="title is-5">Когда использовать сброс?</h4>
                 <ul>
-                  <li>Starting a new training session</li>
-                  <li>Cleaning up test data</li>
-                  <li>Resetting to initial state</li>
+                  <li>При начале новой учебной сессии</li>
+                  <li>Для очистки тестовых данных</li>
+                  <li>Для возврата к начальному состоянию</li>
                 </ul>
 
                 <div className="notification is-info is-light mt-4">
                   <p>
-                    <strong>Tip:</strong> You can always recreate test data using the Producer page.
+                    <strong>Совет:</strong> Вы всегда можете пересоздать тестовые данные через страницу Продюсера.
                   </p>
                 </div>
               </div>

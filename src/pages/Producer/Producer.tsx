@@ -80,10 +80,10 @@ const Producer = () => {
         });
       }
 
-      toast.success(`Event sent to topic successfully!`);
+      toast.success('Событие успешно отправлено в топик!');
       setFormData({ ...formData, message_id: generateUUID() });
     } catch (error) {
-      toast.error(error instanceof Error ? error.message : 'Failed to send event');
+      toast.error(error instanceof Error ? error.message : 'Не удалось отправить событие');
     } finally {
       setLoading(false);
     }
@@ -96,24 +96,24 @@ const Producer = () => {
           <h1 className="title is-2">
             <span className="icon-text">
               <span className="icon"><i className="fas fa-paper-plane"></i></span>
-              <span>Kafka Producer</span>
+              <span>Kafka Продюсер</span>
             </span>
           </h1>
-          <p className="subtitle">Send events to Kafka topics</p>
+          <p className="subtitle">Отправка событий в топики Kafka</p>
         </div>
 
         <div className="columns">
           <div className="column is-8">
-            <Card title="Event Producer" subtitle="Create and send events to Kafka">
+            <Card title="Продюсер событий" subtitle="Создание и отправка событий в Kafka">
               <form onSubmit={handleSubmit}>
                 <div className="field">
-                  <label className="label">Event Type</label>
+                  <label className="label">Тип события</label>
                   <div className="control">
                     <div className="select is-fullwidth is-info">
                       <select value={eventType} onChange={(e) => setEventType(e.target.value as EventType)}>
-                        <option value="personal">Personal (hr.personal)</option>
-                        <option value="position">Position (hr.positions)</option>
-                        <option value="history">History (hr.history)</option>
+                        <option value="personal">Персональные данные (hr.personal)</option>
+                        <option value="position">Должность (hr.positions)</option>
+                        <option value="history">История (hr.history)</option>
                       </select>
                     </div>
                   </div>
@@ -122,7 +122,7 @@ const Producer = () => {
                 <div className="columns">
                   <div className="column">
                     <div className="field">
-                      <label className="label">Message ID</label>
+                      <label className="label">ID сообщения</label>
                       <div className="control">
                         <input
                           className="input"
@@ -133,12 +133,12 @@ const Producer = () => {
                           readOnly
                         />
                       </div>
-                      <p className="help">Auto-generated UUID</p>
+                      <p className="help">Автоматически сгенерированный UUID</p>
                     </div>
                   </div>
                   <div className="column">
                     <div className="field">
-                      <label className="label">Employee ID</label>
+                      <label className="label">ID сотрудника</label>
                       <div className="control">
                         <input
                           className="input"
@@ -158,7 +158,7 @@ const Producer = () => {
                     <div className="columns">
                       <div className="column">
                         <div className="field">
-                          <label className="label">First Name</label>
+                          <label className="label">Имя</label>
                           <div className="control">
                             <input
                               className="input"
@@ -173,7 +173,7 @@ const Producer = () => {
                       </div>
                       <div className="column">
                         <div className="field">
-                          <label className="label">Last Name</label>
+                          <label className="label">Фамилия</label>
                           <div className="control">
                             <input
                               className="input"
@@ -206,7 +206,7 @@ const Producer = () => {
                       </div>
                       <div className="column">
                         <div className="field">
-                          <label className="label">Phone</label>
+                          <label className="label">Телефон</label>
                           <div className="control">
                             <input
                               className="input"
@@ -222,7 +222,7 @@ const Producer = () => {
                     </div>
 
                     <div className="field">
-                      <label className="label">Birth Date</label>
+                      <label className="label">Дата рождения</label>
                       <div className="control">
                         <input
                           className="input"
@@ -240,7 +240,7 @@ const Producer = () => {
                 {eventType === 'position' && (
                   <>
                     <div className="field">
-                      <label className="label">Title</label>
+                      <label className="label">Должность</label>
                       <div className="control">
                         <input
                           className="input"
@@ -256,7 +256,7 @@ const Producer = () => {
                     <div className="columns">
                       <div className="column">
                         <div className="field">
-                          <label className="label">Department</label>
+                          <label className="label">Отдел</label>
                           <div className="control">
                             <div className="select is-fullwidth">
                               <select name="department" value={formData.department} onChange={handleChange}>
@@ -270,7 +270,7 @@ const Producer = () => {
                       </div>
                       <div className="column">
                         <div className="field">
-                          <label className="label">Grade</label>
+                          <label className="label">Грейд</label>
                           <div className="control">
                             <div className="select is-fullwidth">
                               <select name="grade" value={formData.grade} onChange={handleChange}>
@@ -285,7 +285,7 @@ const Producer = () => {
                     </div>
 
                     <div className="field">
-                      <label className="label">Effective From</label>
+                      <label className="label">Действует с</label>
                       <div className="control">
                         <input
                           className="input"
@@ -303,7 +303,7 @@ const Producer = () => {
                 {eventType === 'history' && (
                   <>
                     <div className="field">
-                      <label className="label">Company</label>
+                      <label className="label">Компания</label>
                       <div className="control">
                         <input
                           className="input"
@@ -317,7 +317,7 @@ const Producer = () => {
                     </div>
 
                     <div className="field">
-                      <label className="label">Position</label>
+                      <label className="label">Должность</label>
                       <div className="control">
                         <input
                           className="input"
@@ -333,7 +333,7 @@ const Producer = () => {
                     <div className="columns">
                       <div className="column">
                         <div className="field">
-                          <label className="label">Period From</label>
+                          <label className="label">Период с</label>
                           <div className="control">
                             <input
                               className="input"
@@ -348,7 +348,7 @@ const Producer = () => {
                       </div>
                       <div className="column">
                         <div className="field">
-                          <label className="label">Period To</label>
+                          <label className="label">Период по</label>
                           <div className="control">
                             <input
                               className="input"
@@ -364,7 +364,7 @@ const Producer = () => {
                     </div>
 
                     <div className="field">
-                      <label className="label">Tech Stack</label>
+                      <label className="label">Технологический стек</label>
                       <div className="control">
                         <textarea
                           className="textarea"
@@ -375,7 +375,7 @@ const Producer = () => {
                           required
                         />
                       </div>
-                      <p className="help">Comma-separated values</p>
+                      <p className="help">Значения через запятую</p>
                     </div>
                   </>
                 )}
@@ -388,7 +388,7 @@ const Producer = () => {
                       disabled={loading}
                     >
                       <span className="icon"><i className="fas fa-paper-plane"></i></span>
-                      <span>Send Event to Kafka</span>
+                      <span>Отправить событие в Kafka</span>
                     </button>
                   </div>
                 </div>
@@ -397,46 +397,46 @@ const Producer = () => {
           </div>
 
           <div className="column is-4">
-            <Card title="Topic Information">
+            <Card title="Информация о топике">
               <div className="content">
                 {eventType === 'personal' && (
                   <>
                     <h4 className="title is-5">hr.personal</h4>
-                    <p>Contains personal information about employees:</p>
+                    <p>Содержит персональную информацию о сотрудниках:</p>
                     <ul>
-                      <li>Name and contact details</li>
-                      <li>Email and phone</li>
-                      <li>Birth date</li>
+                      <li>Имя и контактная информация</li>
+                      <li>Email и телефон</li>
+                      <li>Дата рождения</li>
                     </ul>
                   </>
                 )}
                 {eventType === 'position' && (
                   <>
                     <h4 className="title is-5">hr.positions</h4>
-                    <p>Contains position and role information:</p>
+                    <p>Содержит информацию о должности и роли:</p>
                     <ul>
-                      <li>Job title</li>
-                      <li>Department</li>
-                      <li>Grade level</li>
-                      <li>Effective date</li>
+                      <li>Название должности</li>
+                      <li>Отдел</li>
+                      <li>Уровень грейда</li>
+                      <li>Дата вступления в силу</li>
                     </ul>
                   </>
                 )}
                 {eventType === 'history' && (
                   <>
                     <h4 className="title is-5">hr.history</h4>
-                    <p>Contains employment history:</p>
+                    <p>Содержит историю работы:</p>
                     <ul>
-                      <li>Company name</li>
-                      <li>Position held</li>
-                      <li>Employment period</li>
-                      <li>Technology stack</li>
+                      <li>Название компании</li>
+                      <li>Занимаемая должность</li>
+                      <li>Период работы</li>
+                      <li>Технологический стек</li>
                     </ul>
                   </>
                 )}
                 
                 <div className="notification is-warning is-light mt-4">
-                  <p><strong>Testing Tip:</strong> Try sending malformed data to trigger DLQ scenarios!</p>
+                  <p><strong>Совет по тестированию:</strong> Попробуйте отправить некорректные данные для проверки сценариев DLQ!</p>
                 </div>
               </div>
             </Card>

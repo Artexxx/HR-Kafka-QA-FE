@@ -24,11 +24,13 @@ export const generateUUID = (): string => {
   });
 };
 
-export const decodePayload = (payload: number[]): string => {
+export const decodePayload = (payload: any): string => {
   try {
-    const text = new TextDecoder().decode(new Uint8Array(payload));
-    return JSON.stringify(JSON.parse(text), null, 2);
-  } catch {
-    return String.fromCharCode(...payload);
+    if (typeof payload === 'object') {
+      return JSON.stringify(payload, null, 2);
+    }
+    return String(payload);
+  } catch (error) {
+    return 'Ошибка декодирования payload';
   }
 };

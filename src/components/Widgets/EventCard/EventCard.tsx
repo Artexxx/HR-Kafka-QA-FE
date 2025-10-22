@@ -38,7 +38,7 @@ const EventCard = ({ event }: EventCardProps) => {
             <div className="column">
               <span className="icon-text">
                 <span className="icon has-text-warning"><i className="fas fa-layer-group"></i></span>
-                <span><strong>Partition:</strong> {event.partition}</span>
+                <span><strong>Партиция:</strong> {event.partition}</span>
               </span>
             </div>
             <div className="column">
@@ -51,7 +51,7 @@ const EventCard = ({ event }: EventCardProps) => {
         </div>
 
         <div className="message-id">
-          <strong>Message ID:</strong> 
+          <strong>ID сообщения:</strong> 
           <code>{event.message_id}</code>
         </div>
 
@@ -59,7 +59,7 @@ const EventCard = ({ event }: EventCardProps) => {
           <details>
             <summary className="button is-small is-light">
               <span className="icon"><i className="fas fa-code"></i></span>
-              <span>View Payload</span>
+              <span>Показать Payload</span>
             </summary>
             <pre className="payload-content">{decodePayload(event.payload)}</pre>
           </details>

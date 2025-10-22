@@ -17,7 +17,7 @@ const DLQ = () => {
       const data = await getDLQ();
       setDlqMessages(Array.isArray(data) ? data : []);
     } catch (error) {
-      toast.error('Failed to load DLQ messages');
+      toast.error('Не удалось загрузить сообщения DLQ');
       setDlqMessages([]);
     } finally {
       setLoading(false);
@@ -41,11 +41,11 @@ const DLQ = () => {
                 <span>Dead Letter Queue</span>
               </span>
             </h1>
-            <p className="subtitle">Monitor failed Kafka messages</p>
+            <p className="subtitle">Мониторинг ошибочных сообщений Kafka</p>
           </div>
           <button className="button is-danger" onClick={loadDLQ}>
             <span className="icon"><i className="fas fa-sync-alt"></i></span>
-            <span>Refresh</span>
+            <span>Обновить</span>
           </button>
         </div>
 
@@ -59,15 +59,15 @@ const DLQ = () => {
               </span>
             </p>
             <p className="has-text-centered">
-              <strong>Great! No failed messages in DLQ.</strong><br />
-              All events are being processed successfully.
+              <strong>Отлично! Нет ошибочных сообщений в DLQ.</strong><br />
+              Все события обрабатываются успешно.
             </p>
           </div>
         ) : (
           <>
             <div className="notification is-danger is-light">
-              <strong>⚠️ {dlqMessages.length} message(s) failed processing</strong>
-              <p className="mt-2">Review the errors below and fix the issues in your message format.</p>
+              <strong>⚠️ {dlqMessages.length} сообщение(-ий/-я) не обработано</strong>
+              <p className="mt-2">Проверьте ошибки ниже и исправьте проблемы в формате сообщений.</p>
             </div>
             <div className="dlq-list">
               {dlqMessages.map((dlq) => (

@@ -13,7 +13,7 @@ const DLQCard = ({ dlq }: DLQCardProps) => {
         <div className="dlq-header">
           <span className="tag is-danger is-light">
             <span className="icon"><i className="fas fa-exclamation-circle"></i></span>
-            <span>Error in {dlq.topic}</span>
+            <span>Ошибка в {dlq.topic}</span>
           </span>
           <span className="has-text-grey-light is-size-7">
             {formatDateTime(dlq.received_at)}
@@ -21,20 +21,20 @@ const DLQCard = ({ dlq }: DLQCardProps) => {
         </div>
 
         <div className="notification is-danger is-light error-message">
-          <strong>Error:</strong>
+          <strong>Ошибка:</strong>
           <p>{dlq.error}</p>
         </div>
 
         <div className="dlq-meta">
           <p><strong>ID:</strong> {dlq.id}</p>
-          <p><strong>Key:</strong> <code>{dlq.key}</code></p>
+          <p><strong>Ключ:</strong> <code>{dlq.key}</code></p>
         </div>
 
         <div className="payload-section">
           <details>
             <summary className="button is-small is-danger is-light">
               <span className="icon"><i className="fas fa-code"></i></span>
-              <span>View Failed Payload</span>
+              <span>Показать payload с ошибкой</span>
             </summary>
             <pre className="payload-content">{decodePayload(dlq.payload)}</pre>
           </details>

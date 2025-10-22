@@ -52,58 +52,58 @@ const Dashboard = () => {
           <h1 className="title is-2">
             <span className="icon-text">
               <span className="icon"><i className="fas fa-tachometer-alt"></i></span>
-              <span>Dashboard</span>
+              <span>Дашборд</span>
             </span>
           </h1>
-          <p className="subtitle">Kafka HR Profiles Training Environment</p>
+          <p className="subtitle">Учебная среда для тестирования Kafka HR-профилей</p>
         </div>
 
         <div className="columns is-multiline">
           <div className="column is-3">
             <StatCard
-              title="Employee Profiles"
+              title="Профили сотрудников"
               value={stats.profiles}
               icon="fas fa-users"
               color="info"
-              subtitle="Total profiles in DB"
+              subtitle="Всего профилей в БД"
             />
           </div>
           <div className="column is-3">
             <StatCard
-              title="Kafka Events"
+              title="События Kafka"
               value={stats.events}
               icon="fas fa-stream"
               color="success"
-              subtitle="Processed events"
+              subtitle="Обработанные события"
             />
           </div>
           <div className="column is-3">
             <StatCard
-              title="DLQ Messages"
+              title="Сообщения DLQ"
               value={stats.dlq}
               icon="fas fa-exclamation-triangle"
               color="danger"
-              subtitle="Failed messages"
+              subtitle="Ошибочные сообщения"
             />
           </div>
           <div className="column is-3">
             <StatCard
-              title="System Health"
-              value={stats.health === 'ok' ? '✓ OK' : '✗ Error'}
+              title="Здоровье системы"
+              value={stats.health === 'ok' ? '✓ OK' : '✗ Ошибка'}
               icon="fas fa-heartbeat"
               color={stats.health === 'ok' ? 'success' : 'danger'}
-              subtitle="API status"
+              subtitle="Статус API"
             />
           </div>
         </div>
 
         <div className="columns">
           <div className="column is-8">
-            <Card title="About Kafka QA Trainer" subtitle="Learning environment for QA engineers">
+            <Card title="О Kafka QA Тренажёре" subtitle="Учебная среда для QA-инженеров">
               <div className="content">
                 <p>
-                  This training stand helps QA engineers understand and test Kafka message processing scenarios.
-                  The system simulates an HR profile management system with three main topics:
+                  Этот учебный стенд помогает QA-инженерам понимать и тестировать сценарии обработки сообщений Kafka.
+                  Система симулирует управление HR-профилями с тремя основными топиками:
                 </p>
                 
                 <div className="tags are-medium">
@@ -112,36 +112,36 @@ const Dashboard = () => {
                   <span className="tag is-warning">hr.history</span>
                 </div>
 
-                <h4 className="title is-5 mt-4">Key Testing Scenarios:</h4>
+                <h4 className="title is-5 mt-4">Ключевые сценарии тестирования:</h4>
                 <ul>
-                  <li>✓ Message ordering and sequence validation</li>
-                  <li>✓ Duplicate message detection</li>
-                  <li>✓ Dead Letter Queue (DLQ) monitoring</li>
-                  <li>✓ Consumer lag analysis</li>
-                  <li>✓ Event payload validation</li>
+                  <li>✓ Проверка порядка и последовательности сообщений</li>
+                  <li>✓ Обнаружение дубликатов сообщений</li>
+                  <li>✓ Мониторинг Dead Letter Queue (DLQ)</li>
+                  <li>✓ Анализ задержек консьюмеров</li>
+                  <li>✓ Валидация payload событий</li>
                 </ul>
               </div>
             </Card>
           </div>
 
           <div className="column is-4">
-            <Card title="Quick Actions">
+            <Card title="Быстрые действия">
               <div className="buttons is-flex is-flex-direction-column">
                 <a href="/producer" className="button is-primary is-fullwidth">
                   <span className="icon"><i className="fas fa-paper-plane"></i></span>
-                  <span>Send Event</span>
+                  <span>Отправить событие</span>
                 </a>
                 <a href="/profiles" className="button is-info is-fullwidth">
                   <span className="icon"><i className="fas fa-users"></i></span>
-                  <span>View Profiles</span>
+                  <span>Просмотр профилей</span>
                 </a>
                 <a href="/events" className="button is-success is-fullwidth">
                   <span className="icon"><i className="fas fa-stream"></i></span>
-                  <span>Monitor Events</span>
+                  <span>Мониторинг событий</span>
                 </a>
                 <a href="/dlq" className="button is-danger is-fullwidth">
                   <span className="icon"><i className="fas fa-exclamation-triangle"></i></span>
-                  <span>Check DLQ</span>
+                  <span>Проверить DLQ</span>
                 </a>
               </div>
             </Card>

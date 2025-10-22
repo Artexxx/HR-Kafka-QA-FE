@@ -18,7 +18,7 @@ const Events = () => {
       const data = await getEvents();
       setEvents(Array.isArray(data) ? data : []);
     } catch (error) {
-      toast.error('Failed to load events');
+      toast.error('Не удалось загрузить события');
       setEvents([]);
     } finally {
       setLoading(false);
@@ -45,24 +45,24 @@ const Events = () => {
             <h1 className="title is-2">
               <span className="icon-text">
                 <span className="icon"><i className="fas fa-stream"></i></span>
-                <span>Kafka Events</span>
+                <span>События Kafka</span>
               </span>
             </h1>
-            <p className="subtitle">Monitor raw Kafka events in real-time</p>
+            <p className="subtitle">Мониторинг событий Kafka в реальном времени</p>
           </div>
           <button className="button is-info" onClick={loadEvents}>
             <span className="icon"><i className="fas fa-sync-alt"></i></span>
-            <span>Refresh</span>
+            <span>Обновить</span>
           </button>
         </div>
 
         <div className="box">
           <div className="field">
-            <label className="label">Filter by Topic</label>
+            <label className="label">Фильтр по топику</label>
             <div className="control">
               <div className="select is-fullwidth">
                 <select value={filterTopic} onChange={(e) => setFilterTopic(e.target.value)}>
-                  <option value="all">All Topics ({events.length})</option>
+                  <option value="all">Все топики ({events.length})</option>
                   {topics.map(topic => (
                     <option key={topic} value={topic}>
                       {topic} ({events.filter(e => e.topic === topic).length})
@@ -84,7 +84,7 @@ const Events = () => {
               </span>
             </p>
             <p className="has-text-centered">
-              No events found. Send events via Producer to see them here.
+              События не найдены. Отправьте события через Продюсер, чтобы увидеть их здесь.
             </p>
           </div>
         ) : (

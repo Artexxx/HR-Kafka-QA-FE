@@ -58,7 +58,7 @@ const ProfileCard = ({ profile, onEdit, onDelete }: ProfileCardProps) => {
           <div className="detail-row">
             <span className="icon-text">
               <span className="icon"><i className="fas fa-calendar"></i></span>
-              <span><strong>Effective from:</strong> {formatDate(profile.effective_from)}</span>
+              <span><strong>Действует с:</strong> {formatDate(profile.effective_from)}</span>
             </span>
           </div>
         </div>
@@ -68,13 +68,13 @@ const ProfileCard = ({ profile, onEdit, onDelete }: ProfileCardProps) => {
             {onEdit && (
               <button className="button is-info is-small" onClick={onEdit}>
                 <span className="icon"><i className="fas fa-edit"></i></span>
-                <span>Edit</span>
+                <span>Редактировать</span>
               </button>
             )}
             {onDelete && (
               <button className="button is-danger is-small" onClick={onDelete}>
                 <span className="icon"><i className="fas fa-trash"></i></span>
-                <span>Delete</span>
+                <span>Удалить</span>
               </button>
             )}
           </div>

@@ -6,7 +6,7 @@ export interface KafkaEventDTO {
   partition: number;
   offset: number;
   message_id: string;
-  payload: number[];
+  payload: any; // JSON payload
   received_at: string;
 }
 
@@ -14,7 +14,7 @@ export interface KafkaDLQDTO {
   id: number;
   topic: string;
   key: string;
-  payload: number[];
+  payload: any; // JSON payload with error context
   error: string;
   received_at: string;
 }
