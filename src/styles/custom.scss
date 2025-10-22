@@ -1,0 +1,91 @@
+// Custom Bulma overrides and additional styles
+
+// Import Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+// Override Bulma variables
+$family-sans-serif: 'Inter', sans-serif;
+$primary: #3273dc;
+$info: #209cee;
+$success: #48c774;
+$warning: #ffdd57;
+$danger: #f14668;
+
+// Global styles
+* {
+  font-family: $family-sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #f5f5f5;
+}
+
+// Smooth transitions
+.button,
+.card,
+.box,
+.notification {
+  transition: all 0.3s ease;
+}
+
+// Custom scrollbar
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+// Animations
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card,
+.box {
+  animation: fadeIn 0.3s ease;
+}
+
+// Utility classes
+.is-fullheight {
+  min-height: 100vh;
+}
+
+.has-shadow {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.has-shadow-hover:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+// Responsive fixes
+@media screen and (max-width: 768px) {
+  .main-sidebar {
+    display: none;
+  }
+  
+  .main-content {
+    margin-left: 0 !important;
+  }
+}

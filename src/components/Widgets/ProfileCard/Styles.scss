@@ -1,0 +1,39 @@
+.profile-card {
+  height: 100%;
+  transition: all 0.3s;
+
+  &:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    transform: translateY(-4px);
+  }
+
+  .profile-avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  .profile-details {
+    margin-top: 1rem;
+
+    .detail-row {
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+
+      .icon {
+        color: #667eea;
+      }
+    }
+  }
+
+  .buttons {
+    margin-top: 1rem;
+  }
+}

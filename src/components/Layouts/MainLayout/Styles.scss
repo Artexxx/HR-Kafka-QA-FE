@@ -1,0 +1,56 @@
+.main-layout {
+  display: flex;
+  min-height: 100vh;
+  background: #f5f5f5;
+}
+
+.main-sidebar {
+  width: 280px;
+  background: linear-gradient(180deg, #1e3a8a 0%, #1e40af 100%);
+  padding: 0;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  .sidebar-header {
+    padding: 2rem 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .menu-list {
+    flex: 1;
+    padding: 1rem 0;
+    overflow-y: auto;
+
+    a {
+      color: rgba(255, 255, 255, 0.8);
+      border-radius: 0;
+      padding: 1rem 1.5rem;
+      transition: all 0.3s;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+      }
+
+      &.is-active {
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        border-left: 4px solid #60a5fa;
+      }
+    }
+  }
+
+  .sidebar-footer {
+    padding: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+.main-content {
+  flex: 1;
+  margin-left: 280px;
+  padding: 2rem;
+}
