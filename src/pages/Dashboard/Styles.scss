@@ -4,6 +4,7 @@
 
     .title {
       margin-bottom: 0.5rem;
+      color: hsl(260, 20%, 15%);
       
       .icon {
         color: hsl(262, 52%, 47%);
@@ -11,7 +12,7 @@
     }
 
     .subtitle {
-      color: hsl(260, 10%, 50%);
+      color: hsl(260, 15%, 40%);
     }
     
     @media screen and (max-width: 768px) {

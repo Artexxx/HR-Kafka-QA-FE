@@ -21,8 +21,8 @@ const ProfileCard = ({ profile, onEdit, onDelete }: ProfileCardProps) => {
             </figure>
           </div>
           <div className="media-content">
-            <p className="title is-5">{profile.first_name} {profile.last_name}</p>
-            <p className="subtitle is-6">{profile.title}</p>
+            <p className="title is-5" style={{ color: 'hsl(260, 20%, 15%)' }}>{profile.first_name} {profile.last_name}</p>
+            <p className="subtitle is-6" style={{ color: 'hsl(260, 15%, 40%)' }}>{profile.title}</p>
             <div className="tags">
               <span className="tag is-info">{profile.grade}</span>
               <span className="tag is-light">{profile.department}</span>

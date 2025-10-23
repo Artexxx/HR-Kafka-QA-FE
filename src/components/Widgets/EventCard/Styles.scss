@@ -19,11 +19,20 @@
     border-bottom: 2px solid hsl(262, 20%, 95%);
     flex-wrap: wrap;
     gap: 0.5rem;
+    
+    .title {
+      color: hsl(260, 20%, 15%);
+    }
   }
 
   .event-meta {
     margin-bottom: 1rem;
     font-size: 0.875rem;
+    color: hsl(260, 15%, 30%);
+    
+    strong {
+      color: hsl(260, 20%, 15%);
+    }
     
     .columns.is-mobile {
       margin: 0 -0.5rem;
@@ -44,6 +53,11 @@
   .message-id {
     margin-bottom: 1rem;
     font-size: 0.875rem;
+    color: hsl(260, 15%, 30%);
+    
+    strong {
+      color: hsl(260, 20%, 15%);
+    }
 
     code {
       display: block;

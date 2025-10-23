@@ -10,6 +10,9 @@ $info: hsl(199, 89%, 48%);
 $success: hsl(142, 76%, 36%);
 $warning: hsl(38, 92%, 50%);
 $danger: hsl(0, 84%, 60%);
+$text: hsl(260, 15%, 20%);
+$text-strong: hsl(260, 20%, 15%);
+$title-color: hsl(260, 20%, 15%);
 
 // Global styles
 * {
@@ -20,6 +23,16 @@ body {
   margin: 0;
   padding: 0;
   background: hsl(240, 20%, 99%);
+  color: hsl(260, 15%, 20%);
+}
+
+// Заголовки - темный текст на светлом фоне
+.title, .subtitle {
+  color: hsl(260, 20%, 15%) !important;
+}
+
+.title.has-text-white {
+  color: white !important;
 }
 
 // Smooth transitions
@@ -93,6 +106,12 @@ body {
 .box {
   border-radius: 12px;
   border: 1px solid hsl(262, 20%, 90%);
+  background: white;
+  color: hsl(260, 15%, 20%);
+}
+
+.label {
+  color: hsl(260, 20%, 15%);
 }
 
 // Button improvements
@@ -113,10 +132,24 @@ body {
 .input, .textarea, .select select {
   border-radius: 8px;
   border-color: hsl(262, 20%, 90%);
+  background: white;
+  color: hsl(260, 15%, 20%);
   
   &:focus {
     border-color: hsl(262, 52%, 47%);
     box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+  }
+}
+
+.help {
+  color: hsl(260, 10%, 50%);
+}
+
+.content {
+  color: hsl(260, 15%, 20%);
+  
+  h4, h5, h6 {
+    color: hsl(260, 20%, 15%) !important;
   }
 }
 
@@ -127,6 +160,58 @@ body {
       display: flex;
       flex-wrap: wrap;
     }
+  }
+}
+
+// Notifications - светлые
+.notification {
+  color: hsl(260, 15%, 20%);
+  
+  &.is-light {
+    background: hsl(240, 20%, 98%);
+  }
+  
+  &.is-info.is-light {
+    background: hsl(199, 89%, 96%);
+    color: hsl(199, 70%, 30%);
+  }
+  
+  &.is-success.is-light {
+    background: hsl(142, 76%, 95%);
+    color: hsl(142, 70%, 25%);
+  }
+  
+  &.is-danger.is-light {
+    background: hsl(0, 84%, 96%);
+    color: hsl(0, 70%, 35%);
+  }
+  
+  &.is-warning.is-light {
+    background: hsl(38, 92%, 95%);
+    color: hsl(38, 80%, 30%);
+  }
+}
+
+// Tags
+.tag {
+  &.is-light {
+    background: hsl(262, 20%, 95%);
+    color: hsl(260, 15%, 30%);
+  }
+  
+  &.is-info {
+    background: hsl(199, 89%, 48%);
+    color: white;
+  }
+  
+  &.is-success {
+    background: hsl(142, 76%, 36%);
+    color: white;
+  }
+  
+  &.is-warning {
+    background: hsl(38, 92%, 50%);
+    color: white;
   }
 }
 

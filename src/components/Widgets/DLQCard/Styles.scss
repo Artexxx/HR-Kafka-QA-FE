@@ -17,6 +17,10 @@
     margin-bottom: 1rem;
     flex-wrap: wrap;
     gap: 0.5rem;
+    
+    .title {
+      color: hsl(260, 20%, 15%);
+    }
   }
 
   .error-message {
@@ -27,12 +31,18 @@
       margin-top: 0.5rem;
       font-family: monospace;
       word-break: break-word;
+      color: hsl(0, 70%, 35%);
     }
   }
 
   .dlq-meta {
     margin-bottom: 1rem;
     font-size: 0.875rem;
+    color: hsl(260, 15%, 30%);
+
+    strong {
+      color: hsl(260, 20%, 15%);
+    }
 
     p {
       margin-bottom: 0.5rem;

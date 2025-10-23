@@ -1,14 +1,15 @@
 .stat-card {
   border-radius: 12px;
   padding: 1.5rem;
-  color: white;
-  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.15);
+  background: white;
+  color: hsl(260, 15%, 20%);
+  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.08);
   transition: all 0.3s ease;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid hsl(262, 20%, 90%);
 
   &:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(139, 92, 246, 0.25);
+    box-shadow: 0 4px 16px rgba(139, 92, 246, 0.15);
   }
 
   .stat-content {
@@ -23,9 +24,10 @@
 
   .stat-title {
     font-size: 0.875rem;
-    opacity: 0.9;
+    opacity: 0.8;
     margin-bottom: 0.5rem;
     font-weight: 500;
+    color: hsl(260, 15%, 40%);
     
     @media screen and (max-width: 768px) {
       font-size: 0.8rem;
@@ -36,6 +38,7 @@
     font-size: 2rem;
     font-weight: 700;
     margin-bottom: 0.25rem;
+    color: hsl(260, 20%, 15%);
     
     @media screen and (max-width: 768px) {
       font-size: 1.5rem;
@@ -45,6 +48,7 @@
   .stat-subtitle {
     font-size: 0.75rem;
     opacity: 0.8;
+    color: hsl(260, 15%, 40%);
     
     @media screen and (max-width: 768px) {
       font-size: 0.7rem;
@@ -53,7 +57,7 @@
 
   .stat-icon {
     font-size: 3rem;
-    opacity: 0.3;
+    opacity: 0.15;
     margin-left: 1rem;
     
     @media screen and (max-width: 768px) {

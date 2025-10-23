@@ -7,6 +7,14 @@
     flex-wrap: wrap;
     gap: 1rem;
 
+    .title {
+      color: hsl(260, 20%, 15%);
+    }
+
+    .subtitle {
+      color: hsl(260, 15%, 40%);
+    }
+
     .icon {
       color: hsl(262, 52%, 47%);
     }
