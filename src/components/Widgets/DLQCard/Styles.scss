@@ -1,20 +1,32 @@
 .dlq-card {
   margin-bottom: 1rem;
-  border-left: 4px solid #f14668;
+  border-left: 4px solid hsl(0, 84%, 60%);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    box-shadow: 0 6px 20px rgba(241, 70, 104, 0.15);
+    transform: translateY(-2px);
+  }
 
   .dlq-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
   }
 
   .error-message {
     margin-bottom: 1rem;
+    border-radius: 8px;
     
     p {
       margin-top: 0.5rem;
       font-family: monospace;
+      word-break: break-word;
     }
   }
 
@@ -39,6 +51,7 @@
         cursor: pointer;
         width: 100%;
         justify-content: flex-start;
+        border-radius: 8px;
 
         &::-webkit-details-marker {
           display: none;
@@ -48,12 +61,20 @@
       .payload-content {
         margin-top: 0.75rem;
         padding: 1rem;
-        background: #282c34;
-        color: #f14668;
-        border-radius: 4px;
+        background: hsl(260, 15%, 10%);
+        color: hsl(0, 84%, 70%);
+        border-radius: 8px;
         font-size: 0.75rem;
-        max-height: 300px;
+        max-height: 400px;
         overflow: auto;
+        border: 1px solid hsl(0, 84%, 90%);
+        word-break: break-word;
+        
+        @media screen and (max-width: 768px) {
+          font-size: 0.7rem;
+          padding: 0.75rem;
+          max-height: 300px;
+        }
       }
     }
   }

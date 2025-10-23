@@ -4,9 +4,52 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
 
     .icon {
-      color: #3273dc;
+      color: hsl(262, 52%, 47%);
+    }
+    
+    @media screen and (max-width: 768px) {
+      margin-bottom: 1.5rem;
+      
+      .title {
+        font-size: 1.5rem;
+      }
+      
+      .button {
+        width: 100%;
+      }
+    }
+  }
+
+  .search-box {
+    margin-bottom: 1.5rem;
+    
+    .input {
+      border-radius: 8px;
+      border-color: hsl(262, 20%, 90%);
+      
+      &:focus {
+        border-color: hsl(262, 52%, 47%);
+        box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+      }
+    }
+  }
+
+  .profiles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    
+    @media screen and (max-width: 768px) {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    
+    @media screen and (min-width: 769px) and (max-width: 1024px) {
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 }

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import type { KafkaDLQDTO } from '@/models/events/api';
 import { formatDateTime, decodePayload } from '@/utils/formatters';
 import './Styles.scss';
@@ -7,6 +8,7 @@ interface DLQCardProps {
 }
 
 const DLQCard = ({ dlq }: DLQCardProps) => {
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="card dlq-card">
       <div className="card-content">
@@ -31,12 +33,18 @@ const DLQCard = ({ dlq }: DLQCardProps) => {
         </div>
 
         <div className="payload-section">
-          <details>
-            <summary className="button is-small is-danger is-light">
+          <details open={isOpen}>
+            <summary 
+              className="button is-small is-danger is-light"
+              onClick={(e) => {
+                e.preventDefault();
+                setIsOpen(!isOpen);
+              }}
+            >
               <span className="icon"><i className="fas fa-code"></i></span>
-              <span>Показать payload с ошибкой</span>
+              <span>{isOpen ? 'Скрыть payload' : 'Показать payload с ошибкой'}</span>
             </summary>
-            <pre className="payload-content">{decodePayload(dlq.payload)}</pre>
+            {isOpen && <pre className="payload-content">{decodePayload(dlq.payload)}</pre>}
           </details>
         </div>
       </div>

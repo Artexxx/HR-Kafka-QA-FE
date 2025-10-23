@@ -3,13 +3,26 @@
     margin-bottom: 2rem;
 
     .icon {
-      color: #3273dc;
+      color: hsl(262, 52%, 47%);
+    }
+    
+    @media screen and (max-width: 768px) {
+      margin-bottom: 1.5rem;
+      
+      .title {
+        font-size: 1.5rem;
+      }
     }
   }
 
   form {
     .field {
       margin-bottom: 1.5rem;
+    }
+    
+    .box {
+      border-radius: 12px;
+      border: 1px solid hsl(262, 20%, 90%);
     }
   }
 }

@@ -6,12 +6,58 @@
       margin-bottom: 0.5rem;
       
       .icon {
-        color: #3273dc;
+        color: hsl(262, 52%, 47%);
       }
     }
 
     .subtitle {
-      color: #7a7a7a;
+      color: hsl(260, 10%, 50%);
+    }
+    
+    @media screen and (max-width: 768px) {
+      margin-bottom: 1.5rem;
+      
+      .title {
+        font-size: 1.75rem;
+      }
+      
+      .subtitle {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .stats-grid {
+    margin-bottom: 2rem;
+    
+    .columns {
+      margin: -0.75rem;
+      
+      .column {
+        padding: 0.75rem;
+      }
+    }
+    
+    @media screen and (max-width: 768px) {
+      .columns .column {
+        flex: 0 0 100%;
+        max-width: 100%;
+      }
+    }
+  }
+
+  .quick-actions {
+    .action-card {
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border-radius: 12px;
+      border: 1px solid hsl(262, 20%, 90%);
+      
+      &:hover {
+        background: hsl(262, 45%, 98%);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(139, 92, 246, 0.12);
+      }
     }
   }
 }

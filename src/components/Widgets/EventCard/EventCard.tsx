@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import type { KafkaEventDTO } from '@/models/events/api';
 import { formatDateTime, decodePayload } from '@/utils/formatters';
 import './Styles.scss';
@@ -7,6 +8,7 @@ interface EventCardProps {
 }
 
 const EventCard = ({ event }: EventCardProps) => {
+  const [isOpen, setIsOpen] = useState(false);
   const getTopicColor = (topic: string) => {
     if (topic.includes('personal')) return 'is-info';
     if (topic.includes('position')) return 'is-success';
@@ -56,12 +58,18 @@ const EventCard = ({ event }: EventCardProps) => {
         </div>
 
         <div className="payload-section">
-          <details>
-            <summary className="button is-small is-light">
+          <details open={isOpen}>
+            <summary 
+              className="button is-small is-light"
+              onClick={(e) => {
+                e.preventDefault();
+                setIsOpen(!isOpen);
+              }}
+            >
               <span className="icon"><i className="fas fa-code"></i></span>
-              <span>Показать Payload</span>
+              <span>{isOpen ? 'Скрыть Payload' : 'Показать Payload'}</span>
             </summary>
-            <pre className="payload-content">{decodePayload(event.payload)}</pre>
+            {isOpen && <pre className="payload-content">{decodePayload(event.payload)}</pre>}
           </details>
         </div>
       </div>
