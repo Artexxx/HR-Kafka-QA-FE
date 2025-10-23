@@ -4,8 +4,8 @@
   .spinner-border {
     width: 3rem;
     height: 3rem;
-    border: 4px solid rgba(0, 0, 0, 0.1);
-    border-left-color: #3273dc;
+    border: 4px solid hsl(262, 20%, 90%);
+    border-left-color: hsl(262, 52%, 47%);
     border-radius: 50%;
     animation: spin 1s linear infinite;
   }
