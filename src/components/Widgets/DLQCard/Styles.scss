@@ -4,6 +4,12 @@
   border-radius: 12px;
   overflow: hidden;
   transition: all 0.3s ease;
+  background: white !important;
+
+  .card-content {
+    background: white !important;
+    color: hsl(260, 15%, 20%) !important;
+  }
   
   &:hover {
     box-shadow: 0 6px 20px rgba(241, 70, 104, 0.15);

@@ -27,8 +27,6 @@ const Events = () => {
 
   useEffect(() => {
     loadEvents();
-    const interval = setInterval(loadEvents, 5000); // Auto-refresh every 5 seconds
-    return () => clearInterval(interval);
   }, []);
 
   const filteredEvents = filterTopic === 'all' 

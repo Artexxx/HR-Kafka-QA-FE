@@ -26,8 +26,6 @@ const DLQ = () => {
 
   useEffect(() => {
     loadDLQ();
-    const interval = setInterval(loadDLQ, 5000); // Auto-refresh every 5 seconds
-    return () => clearInterval(interval);
   }, []);
 
   return (
