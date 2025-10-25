@@ -1,0 +1,53 @@
+.history-item {
+  padding: 1rem;
+  border-left: 3px solid hsl(262, 52%, 47%);
+  background: hsl(262, 40%, 97%);
+  margin-bottom: 0.75rem;
+  border-radius: 6px;
+  transition: all 0.2s;
+
+  &:hover {
+    background: hsl(262, 40%, 95%);
+    border-left-color: hsl(262, 60%, 40%);
+  }
+
+  .history-header {
+    margin-bottom: 0.5rem;
+  }
+
+  .history-company {
+    font-size: 1rem;
+    font-weight: 700;
+    color: hsl(260, 20%, 15%);
+    margin: 0 0 0.25rem 0;
+  }
+
+  .history-position {
+    font-size: 0.9rem;
+    color: hsl(260, 15%, 35%);
+    margin: 0;
+  }
+
+  .history-period {
+    font-size: 0.85rem;
+    color: hsl(260, 15%, 40%);
+    margin-bottom: 0.5rem;
+
+    .icon {
+      color: hsl(262, 52%, 47%);
+    }
+  }
+
+  .history-stack {
+    .tags {
+      margin-top: 0.5rem;
+      margin-bottom: 0;
+
+      .tag {
+        background: white;
+        color: hsl(260, 15%, 30%);
+        font-size: 0.75rem;
+      }
+    }
+  }
+}

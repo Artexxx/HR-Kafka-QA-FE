@@ -3,25 +3,46 @@ import MainLayout from '@/components/Layouts/MainLayout';
 import ProfileCard from '@/components/Widgets/ProfileCard';
 import LoadingSpinner from '@/components/UI/LoadingSpinner';
 import { getProfiles, deleteProfile } from '@/api/profiles';
+import { getHistoryByEmployee } from '@/api/history';
 import type { EmployeeProfileDTO } from '@/models/profiles/api';
+import type { EmploymentHistoryDTO } from '@/models/history/api';
 import { toast } from 'sonner';
 import './Styles.scss';
 
 const Profiles = () => {
   const [profiles, setProfiles] = useState<EmployeeProfileDTO[]>([]);
   const [loading, setLoading] = useState(true);
-  const [searchTerm, setSearchTerm] = useState('');
+  const [historyMap, setHistoryMap] = useState<Record<string, EmploymentHistoryDTO[]>>({});
+  const [historyLoading, setHistoryLoading] = useState<Record<string, boolean>>({});
 
   const loadProfiles = async () => {
     try {
       setLoading(true);
       const data = await getProfiles();
-      setProfiles(Array.isArray(data) ? data : []);
+      const profilesArray = Array.isArray(data) ? data : [];
+      setProfiles(profilesArray);
+      
+      // Load history for each profile
+      profilesArray.forEach(profile => {
+        loadHistory(profile.employee_id);
+      });
     } catch (error) {
       toast.error('Не удалось загрузить профили');
       setProfiles([]);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const loadHistory = async (employeeId: string) => {
+    setHistoryLoading(prev => ({ ...prev, [employeeId]: true }));
+    try {
+      const data = await getHistoryByEmployee(employeeId);
+      setHistoryMap(prev => ({ ...prev, [employeeId]: Array.isArray(data) ? data : [] }));
+    } catch (error) {
+      setHistoryMap(prev => ({ ...prev, [employeeId]: [] }));
+    } finally {
+      setHistoryLoading(prev => ({ ...prev, [employeeId]: false }));
     }
   };
 
@@ -41,13 +62,6 @@ const Profiles = () => {
     }
   };
 
-  const filteredProfiles = profiles.filter(profile => 
-    profile.first_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    profile.last_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    profile.employee_id.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    profile.email.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-
   return (
     <MainLayout>
       <div className="profiles-page">
@@ -63,26 +77,9 @@ const Profiles = () => {
           </div>
         </div>
 
-        <div className="box">
-          <div className="field">
-            <div className="control has-icons-left">
-              <input
-                className="input is-medium"
-                type="text"
-                placeholder="Поиск по имени, ID или email..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-              />
-              <span className="icon is-left">
-                <i className="fas fa-search"></i>
-              </span>
-            </div>
-          </div>
-        </div>
-
         {loading ? (
           <LoadingSpinner fullPage />
-        ) : filteredProfiles.length === 0 ? (
+        ) : profiles.length === 0 ? (
           <div className="notification is-info is-light">
             <p className="has-text-centered">
               <span className="icon is-large">
@@ -90,19 +87,21 @@ const Profiles = () => {
               </span>
             </p>
             <p className="has-text-centered">
-              {searchTerm ? 'Профили не найдены по вашему запросу.' : 'Нет доступных профилей. Создайте события через Продюсер для добавления профилей.'}
+              Нет доступных профилей. Создайте события через Продюсер для добавления профилей.
             </p>
           </div>
         ) : (
           <>
             <div className="notification is-light">
-              <strong>Найдено {filteredProfiles.length} профиль(-ей/-я)</strong>
+              <strong>Найдено {profiles.length} профиль(-ей/-я)</strong>
             </div>
             <div className="columns is-multiline">
-              {filteredProfiles.map((profile) => (
-                <div key={profile.employee_id} className="column is-one-third">
+              {profiles.map((profile) => (
+                <div key={profile.employee_id} className="column is-one-half">
                   <ProfileCard
                     profile={profile}
+                    history={historyMap[profile.employee_id]}
+                    historyLoading={historyLoading[profile.employee_id]}
                     onDelete={() => handleDelete(profile.employee_id)}
                   />
                 </div>

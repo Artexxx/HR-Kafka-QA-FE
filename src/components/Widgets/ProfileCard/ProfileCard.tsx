@@ -1,14 +1,18 @@
 import type { EmployeeProfileDTO } from '@/models/profiles/api';
+import type { EmploymentHistoryDTO } from '@/models/history/api';
 import { formatDate } from '@/utils/formatters';
+import HistoryItem from '@/components/Widgets/HistoryItem';
 import './Styles.scss';
 
 interface ProfileCardProps {
   profile: EmployeeProfileDTO;
+  history?: EmploymentHistoryDTO[];
+  historyLoading?: boolean;
   onEdit?: () => void;
   onDelete?: () => void;
 }
 
-const ProfileCard = ({ profile, onEdit, onDelete }: ProfileCardProps) => {
+const ProfileCard = ({ profile, history, historyLoading, onEdit, onDelete }: ProfileCardProps) => {
   return (
     <div className="card profile-card">
       <div className="card-content">
@@ -61,6 +65,27 @@ const ProfileCard = ({ profile, onEdit, onDelete }: ProfileCardProps) => {
               <span><strong>Действует с:</strong> {formatDate(profile.effective_from)}</span>
             </span>
           </div>
+        </div>
+
+        <div className="history-section">
+          <h3 className="history-title">
+            <span className="icon-text">
+              <span className="icon"><i className="fas fa-briefcase"></i></span>
+              <span>История работы</span>
+            </span>
+          </h3>
+          
+          {historyLoading ? (
+            <div className="history-empty">Загрузка...</div>
+          ) : history && history.length > 0 ? (
+            <div className="history-list">
+              {history.map((item) => (
+                <HistoryItem key={item.id} history={item} />
+              ))}
+            </div>
+          ) : (
+            <div className="history-empty">Пусто</div>
+          )}
         </div>
 
         {(onEdit || onDelete) && (

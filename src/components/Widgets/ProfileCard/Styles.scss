@@ -45,6 +45,38 @@
     }
   }
 
+  .history-section {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid hsl(262, 20%, 90%);
+
+    .history-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: hsl(260, 20%, 15%);
+      margin-bottom: 1rem;
+
+      .icon {
+        color: hsl(262, 52%, 47%);
+      }
+    }
+
+    .history-list {
+      max-height: 400px;
+      overflow-y: auto;
+      padding-right: 0.5rem;
+    }
+
+    .history-empty {
+      padding: 1rem;
+      text-align: center;
+      color: hsl(260, 15%, 50%);
+      font-style: italic;
+      background: hsl(262, 20%, 97%);
+      border-radius: 6px;
+    }
+  }
+
   .buttons {
     margin-top: 1rem;
   }
