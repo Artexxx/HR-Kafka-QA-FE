@@ -1,6 +1,6 @@
 // API Configuration Constants
 
-export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:8080';
+export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://91.218.141.34:8080';
 
 export const API_ENDPOINTS = {
   // Admin
