@@ -1,0 +1,39 @@
+version: "3.9"
+
+services:
+  frontend:
+    image: node:20-alpine
+    container_name: qa-frontend
+    working_dir: /app
+    volumes:
+      - ./:/app
+    environment:
+      # фронт дергает API внутри общей сети бэкенда
+      - VITE_API_BASE_URL=http://qa-app:8080
+    command: >
+      sh -c "npm ci &&
+             npm run build &&
+             npx vite preview --host 0.0.0.0 --port 8081"
+    ports:
+      - "8081:8081"         # прямой доступ, как просил
+    networks:
+      - internal            # общая сеть бэкенда (qa-local)
+      - proxy               # чтобы, при необходимости, ходить через Traefik
+    labels:
+      # --- Traefik (опционально). Удалишь, если не нужно ---
+      - "traefik.enable=true"
+      - "traefik.http.routers.front.rule=Host(`ui.qa-practice.ru`)"
+      - "traefik.http.routers.front.entrypoints=websecure"
+      - "traefik.http.routers.front.tls.certresolver=le"
+      - "traefik.http.services.front.loadbalancer.server.port=8081"
+
+networks:
+  # та же сеть, что у бэкенда (из твоего другого compose)
+  internal:
+    external: true
+    name: qa-local
+
+  # общая прокси-сеть Traefik (если он у тебя уже поднят)
+  proxy:
+    external: true
+    name: proxy
