@@ -9,9 +9,9 @@ services:
       - ./:/app
     environment:
       # фронт дергает API внутри общей сети бэкенда
-      - VITE_API_BASE_URL=http://qa-app:8080
+      - VITE_API_BASE_URL=https://app.qa-practice.ru
     command: >
-      sh -c "npm ci &&
+      sh -c "npm ci --legacy-peer-deps &&
              npm run build &&
              npx vite preview --host 0.0.0.0 --port 8081"
     ports:
