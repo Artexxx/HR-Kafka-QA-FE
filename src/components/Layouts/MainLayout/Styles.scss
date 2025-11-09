@@ -24,21 +24,32 @@
     flex: 1;
     padding: 1rem 0;
     overflow-y: auto;
+    display: block !important;
+    visibility: visible !important;
+
+    li {
+      display: block !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+    }
 
     a {
-      color: rgba(255, 255, 255, 0.8);
+      color: rgba(255, 255, 255, 0.95) !important;
       border-radius: 0;
       padding: 1rem 1.5rem;
       transition: all 0.3s;
+      display: flex !important;
+      visibility: visible !important;
+      opacity: 1 !important;
 
       &:hover {
         background: rgba(255, 255, 255, 0.1);
-        color: white;
+        color: white !important;
       }
 
       &.is-active {
         background: rgba(255, 255, 255, 0.2);
-        color: white;
+        color: white !important;
         border-left: 4px solid #60a5fa;
       }
     }
