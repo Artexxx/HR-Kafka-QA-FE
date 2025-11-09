@@ -222,19 +222,6 @@ body {
 }
 
 @media screen and (max-width: 768px) {
-  .main-sidebar {
-    transform: translateX(-100%);
-    transition: transform 0.3s ease;
-    
-    &.is-active {
-      transform: translateX(0);
-    }
-  }
-  
-  .main-content {
-    margin-left: 0 !important;
-  }
-  
   .container {
     padding-left: 1rem;
     padding-right: 1rem;
@@ -246,5 +233,61 @@ body {
   
   .subtitle {
     font-size: 1rem !important;
+  }
+
+  .card, .box {
+    margin-bottom: 1rem;
+  }
+
+  .button {
+    font-size: 0.9rem;
+    padding: 0.625rem 1rem;
+
+    &.is-fullwidth {
+      width: 100%;
+    }
+  }
+
+  .columns {
+    margin: -0.5rem !important;
+
+    .column {
+      padding: 0.5rem !important;
+    }
+  }
+
+  .content {
+    font-size: 0.95rem;
+
+    h4 {
+      font-size: 1.1rem !important;
+    }
+
+    ul, ol {
+      margin-left: 1rem;
+    }
+  }
+
+  .tags {
+    flex-wrap: wrap;
+    
+    .tag {
+      font-size: 0.8rem;
+    }
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .title {
+    font-size: 1.75rem !important;
+  }
+  
+  .subtitle {
+    font-size: 1.125rem !important;
   }
 }

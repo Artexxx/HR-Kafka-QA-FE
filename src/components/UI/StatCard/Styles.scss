@@ -6,10 +6,17 @@
   box-shadow: 0 2px 8px rgba(139, 92, 246, 0.08);
   transition: all 0.3s ease;
   border: 1px solid hsl(262, 20%, 90%);
+  min-height: 140px;
+  overflow: hidden;
 
   &:hover {
     transform: translateY(-4px);
     box-shadow: 0 4px 16px rgba(139, 92, 246, 0.15);
+  }
+
+  @media screen and (max-width: 768px) {
+    min-height: 120px;
+    padding: 1.25rem;
   }
 
   .stat-content {
@@ -20,6 +27,7 @@
 
   .stat-text {
     flex: 1;
+    overflow: hidden;
   }
 
   .stat-title {
@@ -39,6 +47,8 @@
     font-weight: 700;
     margin-bottom: 0.25rem;
     color: hsl(260, 20%, 15%);
+    word-break: break-word;
+    overflow-wrap: break-word;
     
     @media screen and (max-width: 768px) {
       font-size: 1.5rem;

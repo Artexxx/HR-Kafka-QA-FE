@@ -126,7 +126,7 @@ const Dashboard = () => {
 
           <div className="column is-4">
             <Card title="Быстрые действия">
-              <div className="buttons is-flex is-flex-direction-column">
+              <div className="quick-action-buttons">
                 <a href="/producer" className="button is-primary is-fullwidth">
                   <span className="icon"><i className="fas fa-paper-plane"></i></span>
                   <span>Отправить событие</span>
