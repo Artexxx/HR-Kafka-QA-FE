@@ -32,5 +32,13 @@
       border-radius: 12px;
       border: 1px solid hsl(262, 20%, 90%);
     }
+
+    .button.is-primary {
+      color: white !important;
+      
+      .icon, span {
+        color: white !important;
+      }
+    }
   }
 }
