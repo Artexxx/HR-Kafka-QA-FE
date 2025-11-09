@@ -9,7 +9,7 @@ services:
       - ./:/app
     environment:
       # фронт дергает API внутри общей сети бэкенда
-      - VITE_API_BASE_URL=https://app.qa-practice.ru
+      - VITE_API_BASE_URL=https://app.kafka-practice.ru
     command: >
       sh -c "npm ci --legacy-peer-deps &&
              npm run build &&
@@ -22,7 +22,7 @@ services:
     labels:
       # --- Traefik (опционально). Удалишь, если не нужно ---
       - "traefik.enable=true"
-      - "traefik.http.routers.front.rule=Host(`ui.qa-practice.ru`)"
+      - "traefik.http.routers.front.rule=Host(`ui.kafka-practice.ru`)"
       - "traefik.http.routers.front.entrypoints=websecure"
       - "traefik.http.routers.front.tls.certresolver=le"
       - "traefik.http.services.front.loadbalancer.server.port=8081"
