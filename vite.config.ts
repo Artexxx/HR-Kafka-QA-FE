@@ -7,13 +7,13 @@ export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
     port: 8080,
-    allowedHosts: ["ui.qa-practice.ru"],
+    allowedHosts: ["*"],
   },
 
   preview: {
     host: true,
     port: 8081,
-    allowedHosts: ["ui.qa-practice.ru"],
+    allowedHosts: ["*"],
   },
 
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
